@@ -11,7 +11,8 @@ item option_one ${space} Loading a kernel and initrd
 item option_two ${space} Loading an ISO
 item --gap This is a second sub menu
 item option_three ${space} Loads another custom sub menu
-item option_four ${space} Boot from iSCSI  # New iSCSI boot option
+item option_four ${space} Boot from iSCSI OpenSuse # New iSCSI boot option
+item option_five ${space} Boot from iSCSI Ubuntu  # New iSCSI boot option
 choose custom_choice || goto custom_exit
 echo ${cls}
 goto ${custom_choice}
@@ -38,6 +39,13 @@ set iscsi-server 192.168.2.110
 set iscsi-target iqn.2005-10.org.freenas.ctl
 set iscsi-lun 0
 sanboot iscsi:${iscsi-server}:::${iscsi-lun}:${iscsi-target}:suse
+
+:option_five
+# iSCSI boot logic
+set iscsi-server 192.168.2.110
+set iscsi-target iqn.2005-10.org.freenas.ctl
+set iscsi-lun 0
+sanboot iscsi:${iscsi-server}:::${iscsi-lun}:${iscsi-target}:ubuntu
 
 :custom_exit
 chain utils.ipxe
