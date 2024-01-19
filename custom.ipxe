@@ -44,7 +44,7 @@ sanboot iscsi:${iscsi-server}:::${iscsi-lun}:${iscsi-target}:suse
 # iSCSI boot logic
 set iscsi-server 192.168.2.110
 set iscsi-target iqn.2005-10.org.freenas.ctl
-set iscsi-lun 0
+set iscsi-lun 1
 sanboot iscsi:${iscsi-server}:::${iscsi-lun}:${iscsi-target}:ubuntu
 
 :custom_exit
